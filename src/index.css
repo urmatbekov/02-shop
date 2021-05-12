@@ -6,3 +6,17 @@
     height: 300px;
     object-fit: cover;
 }
+
+.product-desc {
+    min-height: 80px;
+}
+
+.read-more-button {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.cart-table {
+    table-layout: fixed;
+}

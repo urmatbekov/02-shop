@@ -1,28 +1,22 @@
 import React from 'react';
+import {connect} from "react-redux"
+import ProductItem from "./ProductItem"
 
-const ProductList = () => {
+const ProductList = ({products}) => {
     return (
         <div>
             <h1>Hello</h1>
             <div className="row mb-4">
-                {state.map((item) => (
-                    <div key={item.id} className="col-3 mt-4">
-                        <div className="card card-product">
-                            <img className="card-img-top card-product-img" src={item.image} alt="" />
-                            <div className="card-body">
-                                <h2 className="card-title">
-                                    {item.title}
-                                </h2>
-                                <p className="card-text">
-                                    {item.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                {products.map((item) => (
+                    <ProductItem key={item.id} item={item}/>
                 ))}
             </div>
         </div>
     );
 };
 
-export default ProductList;
+const msp = ({products}) => {
+    return {products}
+}
+
+export default connect(msp)(ProductList);

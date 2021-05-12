@@ -1,19 +1,30 @@
 import React from 'react';
-import { connect } from "react-redux";
+import ProductDetail from '../components/ProductDetail';
+import ProductList from '../components/ProductList';
+import { Route } from "react-router-dom";
+import Navbar from '../components/Navbar';
+import CartPage from '../components/CartPage';
 
-const App = ({ state }) => {
-    // console.log(state)
+
+const App = () => {
     return (
         <div>
+            <Navbar/>
             <div className="container border shadow-sm mt-4">
-                
+                <Route path="/" exact>
+                    <ProductList />
+                </Route>
+                <Route path="/product/:id" exact>
+                    <ProductDetail />
+                </Route>
+                <Route path="/cart" exact>
+                    <CartPage/>
+                </Route>
             </div>
         </div>
     );
 };
 
-const msp = (state) => {
-    return { state }
-}
 
-export default connect(msp)(App);
+
+export default App;
